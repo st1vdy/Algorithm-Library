@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{fancyhdr}  % 页眉页脚
+\usepackage{ctex}
+\usepackage[margin=1in]{geometry}
+\usepackage[Glenn]{fncychap}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{verbatim}	
+
+\geometry{a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2cm}
+
+% 定义页眉页脚
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Algorithm Library by st1vdy}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+
+\title{Algorithm Library}
+\author{st1vdy}
+
+\definecolor{dkgreen}{rgb}{0,0,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+    language=c++,                               % 设置默认语言
+    breaklines,                                 % 自动将长的代码行换行排版
+    extendedchars=false,                        % 解决代码跨页时，章节标题，页眉等汉字不显示的问题
+    backgroundcolor=\color{white},              % 背景颜色
+    keywordstyle=\color{blue}\bfseries,         % 关键字颜色
+    identifierstyle=\color[rgb]{0,0,0},         % 普通标识符颜色
+    commentstyle=\color[rgb]{0,0.6,0},          % 注释颜色
+    stringstyle=\color[rgb]{0.58,0,0.82},       % 字符串颜色
+    showstringspaces=false,                     % 不显示字符串内的空格
+    numbers=left,                               % 显示行号
+    captionpos=t,                               % title在上方(在bottom即为b)
+    frame=single,                               % 设置代码框形式
+    rulecolor=\color[rgb]{0,0,0},               % 设置代码框颜色
+}
+
+\begin{document}
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+\pagestyle{plain}
+\tableofcontents
+\end{titlepage}
+%\twocolumn  % 是否需要分栏显示
+\newpage % 另起一页
+\section{多项式} %一级标题
+\subsection{FFT - tourist}
+\lstinputlisting{polynomial/fft_tourist.cpp}
+\subsection{形式幂级数}
+
+\section{数论}
+\subsection{简单的防爆模板}
+\lstinputlisting{number_theory/mod.cpp}
+\subsection{筛法}
+\subsubsection{线性素数筛}
+\lstinputlisting{number_theory/sieve.cpp}
+\subsection{欧拉定理}
+\subsection{欧拉函数}
+\subsection{中国剩余定理}
+\subsubsection{CRT}
+\subsubsection{EXCRT}
+\subsection{BSGS}
+
+\section{线性代数}
+\subsection{高斯-约旦消元法}
+\subsection{高斯消元法-bitset}
+\subsection{线性基}
+\subsection{矩阵树定理}
+\subsection{LGV引理}
+
+\section{组合数学}
+\subsection{组合数预处理}
+\subsection{卢卡斯定理}
+\subsection{小球盒子模型}
+\subsection{斯特林数}
+
+\section{博弈论}
+
+\section{其他数学}
+\subsection{蔡勒公式}
+
+\section{图论}
+\subsection{并查集}
+\lstinputlisting{graph/dsu.cpp}
+\subsection{最小树形图}
+\subsection{最近公共祖先}
+\subsection{最大流}
+\subsection{全局最小割}
+\subsection{二分图最大权匹配}
+\subsection{一般图最大匹配}
+\subsection{2-sat}
+\subsection{最大团}
+
+\section{字符串}
+\subsection{KMP}
+\subsection{Manacher}
+\subsection{Trie}
+\subsection{01-Trie}
+
+\section{计算几何}
+
+
+
+\end{document}
