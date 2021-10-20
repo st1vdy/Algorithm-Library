@@ -770,6 +770,13 @@ INPUT graph/lca.cpp
 INPUT ./graph/lca.cpp
 INPUT graph/lca.cpp
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5e.tfm
+INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei90.tfm
+INPUT ./graph/scc.cpp
+INPUT graph/scc.cpp
+INPUT ./graph/scc.cpp
+INPUT graph/scc.cpp
+INPUT ./graph/scc.cpp
+INPUT graph/scc.cpp
 INPUT ./graph/maxflow_acl.cpp
 INPUT graph/maxflow_acl.cpp
 INPUT ./graph/maxflow_acl.cpp
