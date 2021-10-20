@@ -6,6 +6,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{verbatim}	
+\usepackage{amsmath}
 
 \geometry{a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2cm}
 
@@ -61,18 +62,66 @@
 \subsection{筛法}
 \subsubsection{线性素数筛}
 \lstinputlisting{number_theory/sieve.cpp}
+\subsubsection{线性欧拉函数筛}
+\lstinputlisting{number_theory/phi_sieve.cpp}
+\subsubsection{线性约数个数函数筛}
+\lstinputlisting{number_theory/div_sieve.cpp}
+\subsubsection{线性素因子个数函数筛}
+\lstinputlisting{number_theory/pdiv_sieve.cpp}
+\subsubsection{线性约数和函数筛}
+\lstinputlisting{number_theory/sigma_sieve.cpp}
+\subsubsection{线性莫比乌斯函数筛}
+\lstinputlisting{number_theory/mobius_sieve.cpp}
+\subsection{扩展欧几里得}
+\subsubsection{线性同余方程最小非负整数解}
+exgcd求 $ax+by=c$ 的最小非负整数解详解：
+\begin{itemize}
+    \item 求出 $a,b$ 的最大公约数 $g=\gcd(a,b)$ ，根据裴蜀定理检查是否满足 $c\% g=0$ ，不满足则无解；
+    \item 调整系数 $a,b,c$ 为 $a'=\frac{a}{g},b'=\frac{b}{g},c'=\frac{c}{g}$ ，这是因为 $ax+by=c$ 和 $a'x+b'y=c'$ 是完全等价的；
+    \item 实际上exgcd求解的方程是 $a'x+b'y=1$ ，求解前需要注意让系数 $a',b'\geq 0$ （举个例子，如果系数 $b'$ 原本 $<0$ ，我们可以翻转 $b'$ 的符号然后令解 $(x,y)$ 为 $(x,-y)$ ，但是求解的时候要把 $y$ 翻回来）；
+    \item 我们通过exgcd求出一组解 $(x_0,y_0)$ ，这组解满足 $a'x_0+b'y_0=1$ ，为了使解合法我们需要令 $x_0=c'x_0,y_0=c'y_0$ ，于是有 $a'(c'x_0)+b'(c'y_0)=c''$ ；
+    \item 考虑到 $a'x_0+b'y_0=1$ 等价于同余方程 $a'x_0\equiv 1\pmod{b'}$ ，因此为了求出最小非负整数解，我们最后还需要对 $b'$ 取模；
+    \item 最后注意特判 $c'=0$ 的情况，如果要求解 $y$ 且系数 $b$ 发生了翻转，将其翻转回来。
+\end{itemize}
+
+\lstinputlisting{number_theory/exgcd.cpp}
 \subsection{欧拉定理}
+
+$$
+a^b\equiv
+\begin{cases}
+a^{b\bmod\varphi(p)},\,&\gcd(a,\,p)=1\\
+a^b,&\gcd(a,\,p)\ne1,\,b<\varphi(p)\\
+a^{b\bmod\varphi(p)+\varphi(p)},&\gcd(a,\,p)\ne1,\,b\ge\varphi(p)
+\end{cases}
+\pmod p
+$$
+
 \subsection{欧拉函数}
 \subsection{中国剩余定理}
 \subsubsection{CRT}
+\lstinputlisting{number_theory/crt.cpp}
 \subsubsection{EXCRT}
+\lstinputlisting{number_theory/excrt.cpp}
 \subsection{BSGS}
+\subsection{迪利克雷卷积}
+\subsection{杜教筛}
+
+$$
+\begin{aligned}
+(f*g)(n)=\underset{d|n}{\sum} f(d)g(\frac{n}{d})=\underset{xy=n}{\sum} f(x)g(y)
+\end{aligned}
+$$
 
 \section{线性代数}
 \subsection{高斯-约旦消元法}
+\lstinputlisting{linear_algebra/gauss.cpp}
 \subsection{高斯消元法-bitset}
+\lstinputlisting{linear_algebra/gauss_bitset.cpp}
 \subsection{线性基}
+
 \subsection{矩阵树定理}
+\lstinputlisting{linear_algebra/matrix_tree.cpp}
 \subsection{LGV引理}
 
 \section{组合数学}
@@ -80,6 +129,11 @@
 \subsection{卢卡斯定理}
 \subsection{小球盒子模型}
 \subsection{斯特林数}
+\subsubsection{第一类斯特林数}
+
+第一类斯特林数 $\begin{bmatrix}n\\k\end{bmatrix}$ 表示将 $n$ 个不同元素划分入 $k$ 个非空圆排列的方案数。
+
+\subsubsection{第二类斯特林数}
 
 \section{博弈论}
 
@@ -90,17 +144,28 @@
 \subsection{并查集}
 \lstinputlisting{graph/dsu.cpp}
 \subsection{最小树形图}
+\lstinputlisting{graph/zhuliu.cpp}
 \subsection{最近公共祖先}
+\lstinputlisting{graph/lca.cpp}
 \subsection{最大流}
+\lstinputlisting{graph/maxflow_acl.cpp}
 \subsection{全局最小割}
+
 \subsection{二分图最大权匹配}
+\lstinputlisting{graph/km.cpp}
 \subsection{一般图最大匹配}
 \subsection{2-sat}
 \subsection{最大团}
+\lstinputlisting{graph/max_clique.cpp}
+
+\section{数据结构}
+\subsection{树状数组}
 
 \section{字符串}
 \subsection{KMP}
+\lstinputlisting{string/kmp.cpp}
 \subsection{Manacher}
+\lstinputlisting{string/manacher.cpp}
 \subsection{Trie}
 \subsection{01-Trie}
 
