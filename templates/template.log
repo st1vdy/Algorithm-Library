@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  20 OCT 2021 20:56
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  21 OCT 2021 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -522,48 +522,24 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (./number_theory/mobius_sieve.cpp) [9] (./number_theory/exgcd.cpp) [10]
 (./number_theory/crt.cpp) (./number_theory/excrt.cpp [11])
 (./linear_algebra/gauss.cpp [12]) (./linear_algebra/gauss_bitset.cpp [13])
-(./linear_algebra/matrix_tree.cpp [14]) [15] (./graph/dsu.cpp) [16]
-(./graph/zhuliu.cpp [17]) (./graph/lca.cpp [18]) (./graph/scc.cpp [19] [20])
-(./graph/maxflow_acl.cpp [21] [22] [23] [24]) (./graph/km.cpp [25] [26])
-(./graph/max_clique.cpp [27]) (./string/kmp.cpp [28]) (./string/manacher.cpp
-[29]) [30] (./template.aux)
+(./linear_algebra/matrix_tree.cpp [14]) [15] [16] (./graph/dsu.cpp)
+(./graph/zhuliu.cpp [17] [18]) (./graph/lca.cpp [19]) (./graph/scc.cpp [20]
+[21]) (./graph/maxflow_acl.cpp [22] [23] [24] [25])
+(./graph/mincostmaxflow_acl.cpp [26] [27] [28] [29] [30]) [31] (./graph/km.cpp
+[32]) (./graph/max_clique.cpp [33]) [34] (./string/kmp.cpp)
+(./string/manacher.cpp [35]) [36] (./template.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 9498 strings out of 476919
- 225696 string characters out of 5824079
- 1210053 words of memory out of 5000000
- 29291 multiletter control sequences out of 15000+600000
+ 9550 strings out of 476919
+ 226354 string characters out of 5824079
+ 1207053 words of memory out of 5000000
+ 29340 multiletter control sequences out of 15000+600000
  408626 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,12n,104p,381b,1053s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 101i,13n,104p,381b,1053s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (33 pages).
-r/m/n' in size <10.53937> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 17.
- [1] [2] [3] [4] [5]) (./number_theory/mod.cpp) [6] (./number_theory/sieve.cpp) (./number_theory/phi_sieve.cpp) (./number_theory/div_sieve.cpp [7]) (./number_theory/pdiv_sieve.cpp) [8] (./number_theory/sigma_sieve.cpp) (./number_theory/mobius_sieve.cpp)
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 77.
-
-Package CJKpunct Info: punctuation spaces for family 'rm' do not exist. Use family 'def' instead. on input line 77.
-[9] (./number_theory/exgcd.cpp) [10] (./number_theory/crt.cpp) (./number_theory/excrt.cpp [11]) (./linear_algebra/gauss.cpp [12]) (./linear_algebra/gauss_bitset.cpp [13]) (./linear_algebra/matrix_tree.cpp [14]) [15] (./graph/dsu.cpp) [16] (./graph/zhuliu.cpp [17]) (./graph/lca.cpp [18]) (./graph/scc.cpp [19] [20]) (./graph/maxflow_acl.cpp [21] [22] [23] [24]) (./graph/km.cpp [25] [26]) (./graph/max_clique.cpp [27]) (./string/kmp.cpp [28]) (./string/manacher.cpp) [29] [30] (./template.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.41063pt have occurred.
-
- ) 
-Here is how much of TeX's memory you used:
- 9084 strings out of 478994
- 141489 string characters out of 5860697
- 1086358 words of memory out of 5000000
- 26070 multiletter control sequences out of 15000+600000
- 450009 words of font info for 198 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 87i,12n,90p,543b,1029s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-!pdfTeX error: pdflatex.exe (file unihei4f): Font unihei4f at 903 not found
- ==> Fatal error occurred, no output PDF file produced!
+Output written on template.pdf (39 pages).
