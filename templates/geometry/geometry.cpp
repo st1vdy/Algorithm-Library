@@ -1,4 +1,4 @@
-namespace geometry {
+namespace Geometry {
 #define db long double
 #define pi acos(-1.0)
     constexpr db eps = 1e-7;
@@ -37,9 +37,11 @@ namespace geometry {
         bool operator < (const point& k) const { // 水平序排序 x坐标为第一关键字,y坐标第二关键字
             return x == k.x ? y < k.y : x < k.x;
         }
+        bool operator == (const point& k) const { return cmp(x, k.x) == 0 && cmp(y, k.y) == 0; }
         bool getP() const { // 判断点是否在上半平面 含x负半轴 不含x正半轴及零点
             return sign(y) == 1 || (sign(y) == 0 && sign(x) == -1);
         }
+        void input() { cin >> x >> y; }
     };
     db cross(point k1, point k2) { return k1.x * k2.y - k1.y * k2.x; } // 向量 k1,k2 的叉积
     db dot(point k1, point k2) { return k1.x * k2.x + k1.y * k2.y; }   // 向量 k1,k2 的点积
@@ -122,7 +124,6 @@ namespace geometry {
             return line(p[0] - delta, p[1] - delta);
         }
     };
-
     bool parallel(line k1, line k2) { // 判断是否平行
         return sign(cross(k1.dir(), k2.dir())) == 0;
     }
@@ -135,6 +136,9 @@ namespace geometry {
     bool operator < (line k1, line k2) {
         if (sameDir(k1, k2)) return k2.include(k1[0]);
         return compareAngle(k1.dir(), k2.dir());
+    }
+    bool checkLL(line k1, line k2) {
+        return checkLL(k1[0], k1[1], k2[0], k2[1]);
     }
     point getLL(line k1, line k2) {  // 求 k1 k2 两直线交点 不要忘了判平行!
         return getLL(k1[0], k1[1], k2[0], k2[1]);
@@ -152,7 +156,6 @@ namespace geometry {
             return cmp(r, o.dis(k)); // 圆外:-1, 圆上:0, 圆内:1
         }
     };
-
     int checkposCC(circle k1, circle k2) { // 返回两个圆的公切线数量
         if (cmp(k1.r, k2.r) == -1) swap(k1, k2);
         db dis = k1.o.dis(k2.o);
@@ -225,7 +228,7 @@ namespace geometry {
         if (flag) for (line& k : A) swap(k[0], k[1]);
         return A;
     }
-    db getAreaUnionCT(circle k1, point k2, point k3) { // 圆 k1 与三角形 k2k3k1.o 的有向面积交
+    db getAreaCT(circle k1, point k2, point k3) { // 圆 k1 与三角形 k2k3k1.o 的有向面积交
         point k = k1.o; k1.o = k1.o - k; k2 = k2 - k; k3 = k3 - k;
         int pd1 = k1.inside(k2), pd2 = k1.inside(k3);
         vector<point> A = getCL(k1, k2, k3);
@@ -240,12 +243,28 @@ namespace geometry {
             return cross(A[0], A[1]) / 2 + k1.r * k1.r * (rad(k2, A[0]) + rad(A[1], k3)) / 2;
         }
     }
-    circle getCircle(point k1, point k2, point k3) { // 三点确定一个圆
+    db getAreaCC(circle k1, circle k2) { // 两圆面积交
+        db d = k1.o.dis(k2.o);
+        if (cmp(d, k1.r + k2.r) >= 0) return 0; // 两圆相离
+        if (cmp(k1.r, k2.r) == -1) swap(k1, k2);
+        if (cmp(k1.r - k2.r, d) >= 0) return pi * k2.r * k2.r; // 圆k1包含k2
+        db g1 = acos((k1.r * k1.r + d * d - k2.r * k2.r) / (2 * k1.r * d));
+        db g2 = acos((k2.r * k2.r + d * d - k1.r * k1.r) / (2 * k2.r * d));
+        return g1 * k1.r * k1.r + g2 * k2.r * k2.r - k1.r * d * sin(g1);
+    }
+    circle getCircleOut(point k1, point k2, point k3) { // 三角形外接圆
         db a1 = k2.x - k1.x, b1 = k2.y - k1.y, c1 = (a1 * a1 + b1 * b1) / 2;
         db a2 = k3.x - k1.x, b2 = k3.y - k1.y, c2 = (a2 * a2 + b2 * b2) / 2;
         db d = a1 * b2 - a2 * b1;
-        point o = point(k1.x + (c1 * b2 - c2 * b1) / d, k1.y + (a1 * c2 - a2 * c1) / d);
+        point o(k1.x + (c1 * b2 - c2 * b1) / d, k1.y + (a1 * c2 - a2 * c1) / d);
         return circle(o, k1.dis(o));
+    }
+    circle getCircleIn(point k1, point k2, point k3) {  // 三角形内切圆
+        db a = k1.dis(k2), b = k2.dis(k3), c = k3.dis(k1);
+        db len = a + b + c;
+        db r = abs(cross(k1 - k2, k1 - k3)) / len;
+        point o((k1.x * b + k2.x * c + k3.x * a) / len, (k1.y * b + k2.y * c + k3.y * a) / len);
+        return circle(o, r);
     }
     circle minCircleCovering(vector<point> A) { // 最小圆覆盖 O(n)随机增量法
         // random_shuffle(A.begin(), A.end()); // <= C++14
@@ -262,7 +281,7 @@ namespace geometry {
                         ans.r = ans.o.dis(A[i]);
                         for (int k = 0; k < j; k++) {
                             if (ans.inside(A[k]) == -1)
-                                ans = getCircle(A[i], A[j], A[k]);
+                                ans = getCircleOut(A[i], A[j], A[k]);
                         }
                     }
                 }
@@ -271,54 +290,48 @@ namespace geometry {
         return ans;
     }
 
-    struct polygon { // 多边形类
-        int n; // 点数
-        vector<point> p;
-        polygon() {}
-        polygon(vector<point>& a) : n((int)a.size()), p(a) {}
-        point& operator[] (int n) { return p[n]; }
-        db area() { // 多边形有向面积
-            if (n < 3) return 0;
-            db ans = 0;
-            for (int i = 1; i < n - 1; i++)
-                ans += cross(p[i] - p[0], p[i + 1] - p[0]);
-            return 0.5 * ans;
-        }
-        int inConvexHull(point a) { // O(logn)判断点是否在凸包内 2内部 1边界 0外部
-            // 必须保证凸多边形是一个水平序凸包且不能退化
-            // 退化情况 比如凸包退化成线段 可使用 onSegment() 函数特判
-            auto check = [&](int x) {
-                int ccw1 = counterclockwise(p[0], a, p[x]),
-                    ccw2 = counterclockwise(p[0], a, p[x + 1]);
-                if (ccw1 == -1 && ccw2 == -1) return 2;
-                else if (ccw1 == 1 && ccw2 == 1) return 0;
-                else if (ccw1 == -1 && ccw2 == 1) return 1;
-                else return 1;
-            };
-            if (counterclockwise(p[0], a, p[1]) <= 0 && counterclockwise(p[0], a, p.back()) >= 0) {
-                int l = 1, r = n - 2, mid;
-                while (l <= r) {
-                    mid = (l + r) >> 1;
-                    int chk = check(mid);
-                    if (chk == 1) l = mid + 1;
-                    else if (chk == -1) r = mid;
-                    else break;
-                }
-                int res = counterclockwise(p[mid], a, p[mid + 1]);
-                if (res < 0) return 2;
-                else if (res == 0) return 1;
-                else return 0;
-            } else {
-                return 0;
+    typedef vector<point> polygon;
+    db area(polygon p) { // 多边形有向面积
+        if (p.size() < 3) return 0;
+        db ans = 0;
+        for (int i = 1; i < p.size() - 1; i++)
+            ans += cross(p[i] - p[0], p[i + 1] - p[0]);
+        return 0.5L * ans;
+    }
+    
+    int checkConvexP(polygon p, point a) { // O(logn)判断点是否在凸包内 2内部 1边界 0外部
+        // 必须保证凸多边形是一个水平序凸包且不能退化
+        // 退化情况 比如凸包退化成线段 可使用 onSegment() 函数特判
+        auto check = [&](int x) {
+            int ccw1 = counterclockwise(p[0], a, p[x]),
+                ccw2 = counterclockwise(p[0], a, p[x + 1]);
+            if (ccw1 == -1 && ccw2 == -1) return 2;
+            else if (ccw1 == 1 && ccw2 == 1) return 0;
+            else if (ccw1 == -1 && ccw2 == 1) return 1;
+            else return 1;
+        };
+        if (counterclockwise(p[0], a, p[1]) <= 0 && counterclockwise(p[0], a, p.back()) >= 0) {
+            int l = 1, r = p.size() - 2, mid;
+            while (l <= r) {
+                mid = (l + r) >> 1;
+                int chk = check(mid);
+                if (chk == 1) l = mid + 1;
+                else if (chk == -1) r = mid;
+                else break;
             }
+            int res = counterclockwise(p[mid], a, p[mid + 1]);
+            if (res < 0) return 2;
+            else if (res == 0) return 1;
+            else return 0;
+        } else {
+            return 0;
         }
-    };
-
-    int checkPolyP(polygon poly, point q) { // O(n)判断点是否在一般多边形内
+    }
+    int checkPolyP(vector<point> p, point q) { // O(n)判断点是否在一般多边形内
         // 必须保证简单多边形的点按逆时针给出 返回 2 内部 1 边界 0 外部
-        int pd = 0;
-        for (int i = 0; i < poly.n; i++) {
-            point u = poly.p[i], v = poly.p[(i + 1) % poly.n];
+        int pd = 0, n = p.size();
+        for (int i = 0; i < n; i++) {
+            point u = p[i], v = p[(i + 1) % n];
             if (onSegment(u, v, q)) return 1;
             if (cmp(u.y, v.y) > 0) swap(u, v);
             if (cmp(u.y, q.y) >= 0 || cmp(v.y, q.y) < 0) continue;
@@ -326,28 +339,19 @@ namespace geometry {
         }
         return pd << 1;
     }
-    bool checkConvexHull(polygon poly) { // 检测多边形是否是凸包
-        int sgn = counterclockwise(poly.p[0], poly.p[1], poly.p[2]);
-        for (int i = 1; i < poly.n; i++) {
-            int ccw = counterclockwise(poly[i], poly[(i + 1) % poly.n], poly[(i + 2) % poly.n]);
-            if (sgn != ccw) return false;
-        }
-        return true;
-    }
-    db convexDiameter(polygon poly) { // 0(n)旋转卡壳求凸包直径 / 平面最远点对的平方
-        int n = poly.n; // 请保证多边形是凸包
+    db convexDiameter(polygon p) { // 0(n)旋转卡壳求凸包直径 / 平面最远点对的平方
+        int n = p.size(); // 请保证多边形是凸包
         db ans = 0;
         for (int i = 0, j = n < 2 ? 0 : 1; i < j; i++) {
             for (;; j = (j + 1) % n) {
-                ans = max(ans, (poly[i] - poly[j]).len2());
-                if (sign(cross(poly[i + 1] - poly[i], poly[(j + 1) % n] - poly[j])) <= 0) break;
+                ans = max(ans, (p[i] - p[j]).len2());
+                if (sign(cross(p[i + 1] - p[i], p[(j + 1) % n] - p[j])) <= 0) break;
             }
         }
         return ans;
     }
-
-    vector<point> convexHull(vector<point> A, int flag = 1) { // 凸包 flag=0 不严格 flag=1 严格
-        int n = A.size(); vector<point> ans(n + n);
+    polygon convexHull(polygon A, int flag = 1) { // 凸包 flag=0 不严格 flag=1 严格
+        int n = A.size(); polygon ans(n + n);
         sort(A.begin(), A.end()); int now = -1;
         for (int i = 0; i < A.size(); i++) {
             while (now > 0 && sign(cross(ans[now] - ans[now - 1], A[i] - ans[now - 1])) < flag)
@@ -363,19 +367,37 @@ namespace geometry {
         ans.resize(now);
         return ans;
     }
-    polygon getConvexHull(vector<point> A, int flag = 1) { // 凸包 flag=0 不严格 flag=1
-        auto ch = convexHull(A, flag);
-        return polygon(ch);
+    bool checkConvexHull(polygon p) { // 检测多边形是否是凸包（可以有三点共线）
+        int sgn, n = p.size(), i = 0; // 如果三点共线不算凸包 去掉ccw=0的情况
+        for (;; i++) { // 这一步是为了防止第一步遇到共线的三个点
+            sgn = counterclockwise(p[i], p[(i + 1) % n], p[(i + 2) % n]);
+            if (sgn) break;
+        }
+        for (; i < n; i++) {
+            int ccw = counterclockwise(p[i], p[(i + 1) % n], p[(i + 2) % n]);
+            if (ccw && ccw != sgn) {
+                return false;
+            }
+        }
+        return true;
     }
-    vector<point> convexCut(vector<point> A, point k1, point k2) { // 半平面 k1k2 切凸包 A
-        int n = A.size(); // 保留所有满足 k1 -> p -> k2 为逆时针方向的点
-        A.push_back(A[0]);
-        vector<point> ans;
+    polygon convexCut(polygon A, point k1, point k2) { // 半平面 k1k2 切凸包 A
+        int n = A.size();  // 保留所有满足 k1 -> p -> k2 为逆时针方向的点
+        A.push_back(A[0]); // 保留的点可能有重点
+        polygon ans;
+        line cut(k1, k2);
         for (int i = 0; i < n; i++) {
             int ccw1 = counterclockwise(k1, k2, A[i]);
             int ccw2 = counterclockwise(k1, k2, A[i + 1]);
             if (ccw1 >= 0) ans.push_back(A[i]);
-            if (ccw1 * ccw2 <= 0) ans.push_back(getLL(k1, k2, A[i], A[i + 1]));
+            if (ccw1 * ccw2 <= 0) {
+                if (sameLine(cut, line(A[i], A[i + 1]))) { // 半平面恰好切到凸包上某条边
+                    ans.push_back(A[i]);
+                    ans.push_back(A[i + 1]);
+                } else {
+                    ans.push_back(getLL(k1, k2, A[i], A[i + 1]));
+                }
+            }
         }
         return ans;
     }
@@ -419,3 +441,4 @@ namespace geometry {
         return ans;
     }
 }
+using namespace Geometry;

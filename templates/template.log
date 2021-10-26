@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  21 OCT 2021 20:54
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  26 OCT 2021 19:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -529,19 +529,20 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 [29]) (./graph/mincostmaxflow_acl.cpp [30] [31] [32] [33] [34] [35])
 (./graph/km.cpp [36] [37]) (./graph/max_clique.cpp [38]) (./string/kmp.cpp
 [39]) (./string/manacher.cpp [40]) (./string/trie.cpp) (./string/xortrie.cpp
-[41]) [42] (./template.aux)
+[41]) (./geometry/geometry.cpp [42] [43] [44] [45] [46] [47] [48] [49] [50]
+[51] [52] [53]) [54] (./template.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 9647 strings out of 476919
- 229395 string characters out of 5824079
- 1161053 words of memory out of 5000000
- 29425 multiletter control sequences out of 15000+600000
+ 9868 strings out of 476919
+ 231860 string characters out of 5824079
+ 1362053 words of memory out of 5000000
+ 29643 multiletter control sequences out of 15000+600000
  408626 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,13n,104p,381b,1053s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (45 pages).
+Output written on template.pdf (57 pages).

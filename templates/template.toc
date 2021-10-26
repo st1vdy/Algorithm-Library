@@ -55,5 +55,5 @@
 \contentsline {subsection}{\numberline {8.4}Trie}{41}{}%
 \contentsline {subsection}{\numberline {8.5}01-Trie}{41}{}%
 \contentsline {section}{\numberline {9}计算几何}{42}{}%
-\contentsline {section}{\numberline {10}杂项}{42}{}%
-\contentsline {subsection}{\numberline {10.1}蔡勒公式}{42}{}%
+\contentsline {section}{\numberline {10}杂项}{54}{}%
+\contentsline {subsection}{\numberline {10.1}蔡勒公式}{54}{}%
