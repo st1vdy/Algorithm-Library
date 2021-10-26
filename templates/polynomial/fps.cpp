@@ -1,5 +1,5 @@
 #define db double
-#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE // 这三个函数是给MSVC用的，G++不需要
 inline int __builtin_clz(int v) { // 返回前导0的个数
     return __lzcnt(v);
 }

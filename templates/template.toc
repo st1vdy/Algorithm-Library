@@ -53,7 +53,7 @@
 \contentsline {subsection}{\numberline {8.2}Z-Function}{40}{}%
 \contentsline {subsection}{\numberline {8.3}Manacher}{40}{}%
 \contentsline {subsection}{\numberline {8.4}Trie}{41}{}%
-\contentsline {subsection}{\numberline {8.5}01-Trie}{41}{}%
+\contentsline {subsection}{\numberline {8.5}01-Trie}{42}{}%
 \contentsline {section}{\numberline {9}计算几何}{42}{}%
 \contentsline {section}{\numberline {10}杂项}{54}{}%
 \contentsline {subsection}{\numberline {10.1}蔡勒公式}{54}{}%

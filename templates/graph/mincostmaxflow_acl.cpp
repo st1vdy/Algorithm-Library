@@ -1,5 +1,12 @@
+/*
+ * 费用流Cost常用类型的上限：int范围内 0 <= nx <= 2e9 + 1000， long long范围内：0 <= nx <= 8e18 + 1000
+ *
+ * min_cost_slope() 函数返回的是一个分段函数F(x)（其中x代表流量上界，F(x)代表当前最大流量的最小费用）
+ * 返回的vector是所有F(x)改变的点
+ * 时间复杂度 O(f(N + M))log(N + M) f(N + M) 代表图的流量总和
+ * */
 namespace MCMF {
-    template <class T> struct simple_queue {
+        template <class T> struct simple_queue {
         std::vector<T> payload;
         int pos = 0;
         void reserve(int n) { payload.reserve(n); }
