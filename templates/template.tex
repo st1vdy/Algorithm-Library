@@ -55,10 +55,14 @@
 \subsection{FFT - tourist}
 \lstinputlisting{polynomial/fft_tourist.cpp}
 \subsection{形式幂级数}
+\lstinputlisting{polynomial/fps.cpp}
 
 \section{数论}
 \subsection{简单的防爆模板}
+\subsubsection{类型1}
 \lstinputlisting{number_theory/mod.cpp}
+\subsubsection{类型2}
+\lstinputlisting{number_theory/mod2.cpp}
 \subsection{筛法}
 \subsubsection{线性素数筛}
 \lstinputlisting{number_theory/sieve.cpp}
@@ -98,6 +102,10 @@ a^{b\bmod\varphi(p)+\varphi(p)},&\gcd(a,\,p)\ne1,\,b\ge\varphi(p)
 $$
 
 \subsection{欧拉函数}
+\subsubsection{暴力单点查询}
+\lstinputlisting{number_theory/euler_func_bf.cpp}
+\subsubsection{预处理单点查询}
+\lstinputlisting{number_theory/euler_func_pre.cpp}
 \subsection{中国剩余定理}
 \subsubsection{CRT}
 \lstinputlisting{number_theory/crt.cpp}
@@ -120,7 +128,11 @@ $$
 \end{aligned}
 $$
 
+\subsection{Berlekamp Massey}
+\lstinputlisting{number_theory/bm.cpp}
+
 \section{线性代数}
+\subsection{矩阵}
 \subsection{高斯-约旦消元法}
 \lstinputlisting{linear_algebra/gauss.cpp}
 \subsection{高斯消元法-bitset}
@@ -131,11 +143,69 @@ $$
 \lstinputlisting{linear_algebra/matrix_tree.cpp}
 \subsection{LGV引理}
 
+
 \section{组合数学}
 \subsection{组合数预处理}
 \lstinputlisting{combinatorics/binom.cpp}
 \subsection{卢卡斯定理}
 \subsection{小球盒子模型}
+
+设有 $n$ 个球，$k$ 个盒子：
+
+\begin{enumerate}
+    \item 球之间互不相同，盒子之间互不相同，可以空盒
+
+   根据乘法原理，答案就是 $k^n$ 。
+
+    \item 球之间互不相同，盒子之间互不相同，每个盒子至多装一个球
+
+   相当于每个球找一个没有被选过的盒子放进去，答案是 $k^{\underline{n}}$ ，即 $k(k-1)\cdots(k-n+1)$ 。
+
+    \item 球之间互不相同，盒子之间互不相同，每个盒子至少装一个球
+
+   可以先把盒子视为相同：$n$ 个球放进 $k$ 个相同盒子、不能空盒，这就是第二类斯特林数 $S^k_n$ 的定义。最后由于盒子不同，再乘上一个排列数，因此答案就是 $k!S^k_n$ 。
+
+    \item 球之间互不相同，盒子全部相同，可以空盒
+
+   枚举非空盒子数量，相当于第二类斯特林数一行求和：$\sum_{i=1}^{k}S^i_n$ 。
+
+    \item 球之间互不相同，盒子全部相同，每个盒子至多装一个球
+
+   因为盒子相同，不论怎么放都是一样的，答案是 $[n\leq k]$（这是一个布尔运算式，若 $n\leq k$ 成立则取 $1$ ，否则 $0$）。
+
+    \item 球之间互不相同，盒子全部相同，每个盒子至少装一个球
+
+   就是第二类斯特林数 $S_n^k$ 。
+
+    \item 球全部相同，盒子之间互不相同，可以空盒
+
+   隔板法经典应用，$n+k-1$ 个球选 $k-1$ 个板，因此答案是 $\binom{n+k-1}{k-1}$ 。
+
+    \item 球全部相同，盒子之间互不相同，每个盒子至多装一个球
+
+   盒子不同，相当于要选出 $n$ 个盒子装球，因此答案是 $\binom{n}{k}$ 。
+
+    \item 球全部相同，盒子之间互不相同，每个盒子至少装一个球
+
+   隔板法经典应用，$n-1$ 个空隙选 $k-1$ 个插板（可以看作是情况7时每个盒子里都预先加入一个球），因此答案是 $\binom{n-1}{k-1}$ 。
+
+    \item 球全部相同，盒子全部相同，可以空盒
+
+    定义划分数 $p_{n,k}$ 表示将自然数 $n$ 拆成 $k$ 份的方案数，那么本例的结论就是 $p_{n,k}$ 。
+
+    这个问题有一个经典递推式：$p(n,k) = p(n,k-1) + p(n-k,k)$ 。意义是将 $j$ 个自然数 $+1$ 或者加入一个 $0$ 。下面给出一个代码实现：
+
+    \lstinputlisting{combinatorics/p_bf.cpp}
+
+    \item 球全部相同，盒子全部相同，每个盒子至多装一个球
+
+    和情况5一致，就是 $[n\leq k]$ 。
+
+    \item 球全部相同，盒子全部相同，每个盒子至少装一个球
+
+    显然也是一个划分数：$p_{n-k,k}$ 。
+\end{enumerate}
+
 \subsection{斯特林数}
 \subsubsection{第一类斯特林数}
 
@@ -234,21 +304,24 @@ $$
 \subsection{最小费用最大流}
 \lstinputlisting{graph/mincostmaxflow_acl.cpp}
 \subsection{全局最小割}
-
+\lstinputlisting{graph/stoer_wagner.cpp}
 \subsection{二分图最大权匹配}
 \lstinputlisting{graph/km.cpp}
 \subsection{一般图最大匹配}
+\lstinputlisting{graph/blossom.cpp}
 \subsection{2-sat}
 \subsection{最大团}
 \lstinputlisting{graph/max_clique.cpp}
 
 \section{数据结构}
 \subsection{树状数组}
-
+\lstinputlisting{data_structures/fenwick_basic.cpp}
+\subsection{线段树}
 \section{字符串}
 \subsection{KMP}
 \lstinputlisting{string/kmp.cpp}
 \subsection{Z-Function}
+\lstinputlisting{string/z_function.cpp}
 \subsection{Manacher}
 \lstinputlisting{string/manacher.cpp}
 \subsection{Trie}
@@ -260,6 +333,16 @@ $$
 \lstinputlisting{geometry/geometry.cpp}
 
 \section{杂项}
+\subsection{快速IO}
+\lstinputlisting{others/fastio.cpp}
 \subsection{蔡勒公式}
+\lstinputlisting{others/zeller.cpp}
+\subsection{枚举子集}
+\subsubsection{暴力遍历}
+\lstinputlisting{others/subset.cpp}
+\subsubsection{遍历大小为k的子集}
+\lstinputlisting{others/k_subset.cpp}
+\subsection{高维前缀和/SoSDP}
+\lstinputlisting{others/sos.cpp}
 
 \end{document}

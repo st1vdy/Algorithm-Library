@@ -6,7 +6,7 @@
  * 时间复杂度 O(f(N + M))log(N + M) f(N + M) 代表图的流量总和
  * */
 namespace MCMF {
-        template <class T> struct simple_queue {
+    template <class T> struct simple_queue {
         std::vector<T> payload;
         int pos = 0;
         void reserve(int n) { payload.reserve(n); }
