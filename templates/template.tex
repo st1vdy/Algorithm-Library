@@ -148,6 +148,17 @@ $$
 \subsection{组合数预处理}
 \lstinputlisting{combinatorics/binom.cpp}
 \subsection{卢卡斯定理}
+
+对于质数 $p$，有：
+
+$$
+\begin{aligned}
+\binom{n}{m}\bmod p = \binom{\left\lfloor n/p \right\rfloor}{\left\lfloor m/p\right\rfloor}\cdot\binom{n\bmod p}{m\bmod p}\bmod p
+\end{aligned}
+$$
+
+\lstinputlisting{combinatorics/lucas.cpp}
+
 \subsection{小球盒子模型}
 
 设有 $n$ 个球，$k$ 个盒子：
@@ -293,12 +304,18 @@ $$
 \section{图论}
 \subsection{并查集}
 \lstinputlisting{graph/dsu.cpp}
+\subsection{最短路}
+\lstinputlisting{graph/dijkstra.cpp}
 \subsection{最小树形图}
 \lstinputlisting{graph/zhuliu.cpp}
 \subsection{最近公共祖先}
 \lstinputlisting{graph/lca.cpp}
+\subsection{欧拉回路}
+\lstinputlisting{graph/euler_circuit.cpp}
 \subsection{强连通分量}
 \lstinputlisting{graph/scc.cpp}
+\subsection{2-sat}
+\lstinputlisting{graph/twosat.cpp}
 \subsection{最大流}
 \lstinputlisting{graph/maxflow_acl.cpp}
 \subsection{最小费用最大流}
@@ -309,7 +326,6 @@ $$
 \lstinputlisting{graph/km.cpp}
 \subsection{一般图最大匹配}
 \lstinputlisting{graph/blossom.cpp}
-\subsection{2-sat}
 \subsection{最大团}
 \lstinputlisting{graph/max_clique.cpp}
 

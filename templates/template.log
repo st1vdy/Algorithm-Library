@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  27 OCT 2021 14:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  27 OCT 2021 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,29 +527,31 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (./linear_algebra/gauss.cpp [27]) (./linear_algebra/gauss_bitset.cpp [28])
 (./linear_algebra/linear_basis.cpp [29] [30] [31])
 (./linear_algebra/matrix_tree.cpp [32] [33]) (./combinatorics/binom.cpp)
-[34] (./combinatorics/p_bf.cpp [35]) [36] (./graph/dsu.cpp [37])
-(./graph/zhuliu.cpp [38]) (./graph/lca.cpp [39]) (./graph/scc.cpp [40] [41])
-(./graph/maxflow_acl.cpp [42] [43] [44] [45]) (./graph/mincostmaxflow_acl.cpp
-[46] [47] [48] [49] [50] [51]) (./graph/stoer_wagner.cpp [52]) (./graph/km.cpp
-[53] [54]) (./graph/blossom.cpp [55] [56] [57]) (./graph/max_clique.cpp
-[58]) (./data_structures/fenwick_basic.cpp [59]) (./string/kmp.cpp [60])
-(./string/z_function.cpp) (./string/manacher.cpp [61]) (./string/trie.cpp
-[62]) (./string/xortrie.cpp [63]) (./geometry/geometry.cpp [64] [65] [66]
-[67] [68] [69] [70] [71] [72] [73] [74]) (./others/fastio.cpp [75] [76]
-[77] [78]) (./others/zeller.cpp) (./others/subset.cpp) [79]
-(./others/k_subset.cpp) (./others/sos.cpp) [80] (./template.aux)
+[34] (./combinatorics/lucas.cpp) [35] (./combinatorics/p_bf.cpp) [36]
+(./graph/dsu.cpp [37]) (./graph/dijkstra.cpp [38]) (./graph/zhuliu.cpp [39]
+[40]) (./graph/lca.cpp [41]) (./graph/euler_circuit.cpp [42] [43])
+(./graph/scc.cpp [44] [45]) (./graph/twosat.cpp [46]) (./graph/maxflow_acl.cpp
+[47] [48] [49] [50]) (./graph/mincostmaxflow_acl.cpp [51] [52] [53] [54]
+[55] [56]) (./graph/stoer_wagner.cpp [57]) (./graph/km.cpp [58])
+(./graph/blossom.cpp [59] [60] [61]) [62] (./graph/max_clique.cpp [63])
+(./data_structures/fenwick_basic.cpp) [64] (./string/kmp.cpp)
+(./string/z_function.cpp [65]) (./string/manacher.cpp [66]) (./string/trie.cpp)
+(./string/xortrie.cpp [67]) (./geometry/geometry.cpp [68] [69] [70] [71]
+[72] [73] [74] [75] [76] [77] [78] [79]) (./others/fastio.cpp [80] [81]
+[82]) (./others/zeller.cpp [83]) (./others/subset.cpp) (./others/k_subset.cpp)
+(./others/sos.cpp) [84] (./template.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 10253 strings out of 476919
- 238655 string characters out of 5824079
- 1365053 words of memory out of 5000000
- 29982 multiletter control sequences out of 15000+600000
+ 10306 strings out of 476919
+ 239423 string characters out of 5824079
+ 1370053 words of memory out of 5000000
+ 30023 multiletter control sequences out of 15000+600000
  408626 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,13n,104p,381b,1053s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (83 pages).
+Output written on template.pdf (87 pages).
