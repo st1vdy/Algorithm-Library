@@ -60,7 +60,6 @@
 - 来源 jiangly，已通过以下测试：
 
   - https://uoj.ac/problem/79
-
   - https://www.luogu.com.cn/problem/P6113
 
 ### 最大团
