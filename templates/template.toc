@@ -17,8 +17,8 @@
 \contentsline {subsubsection}{\numberline {2.4.1}线性同余方程最小非负整数解}{22}{}%
 \contentsline {subsubsection}{\numberline {2.4.2}一定范围内线性方程整数解数}{23}{}%
 \contentsline {subsection}{\numberline {2.5}类欧几里得}{25}{}%
-\contentsline {subsubsection}{\numberline {2.5.1}naive}{25}{}%
-\contentsline {subsubsection}{\numberline {2.5.2}general}{26}{}%
+\contentsline {subsubsection}{\numberline {2.5.1}Naive}{25}{}%
+\contentsline {subsubsection}{\numberline {2.5.2}General}{26}{}%
 \contentsline {subsection}{\numberline {2.6}欧拉定理}{29}{}%
 \contentsline {subsection}{\numberline {2.7}欧拉函数}{29}{}%
 \contentsline {subsubsection}{\numberline {2.7.1}暴力单点查询}{29}{}%
