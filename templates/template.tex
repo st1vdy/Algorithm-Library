@@ -76,6 +76,8 @@
 \lstinputlisting{number_theory/sigma_sieve.cpp}
 \subsubsection{线性莫比乌斯函数筛}
 \lstinputlisting{number_theory/mobius_sieve.cpp}
+\subsection{Pollard-Rho}
+\lstinputlisting{number_theory/pollard_rho.cpp}
 \subsection{扩展欧几里得}
 \subsubsection{线性同余方程最小非负整数解}
 exgcd求 $ax+by=c$ 的最小非负整数解详解：
@@ -88,6 +90,9 @@ exgcd求 $ax+by=c$ 的最小非负整数解详解：
     \item 最后注意特判 $c'=0$ 的情况，如果要求解 $y$ 且系数 $b$ 发生了翻转，将其翻转回来。
 \end{enumerate}
 \lstinputlisting{number_theory/exgcd.cpp}
+\subsubsection{一定范围内线性方程整数解数}
+exgcd通解：假设我们通过上方的exgcd流程获得了一组解 $(x_0,y_0)$ （没有乘 $c$ ），那么 $a'x+b'y=1$ 的通解就是 $(x_0+b't,y_0-a't)$ ，因此 $a'x+b'y=c'$ 的通解是 $(c'(x_0+b't),c'(y_0-a't))$ 。
+\lstinputlisting{number_theory/exgcd2.cpp}
 \subsection{类欧几里得}
 \subsubsection{naive}
 $$
