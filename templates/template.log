@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  27 OCT 2021 17:43
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.10.20)  2 NOV 2021 16:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -511,47 +511,66 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 (Font)              size <10.95> substituted on input line 2.
 
-[2])
+[2] [3])
 \tf@toc=\write3
 \openout3 = `template.toc'.
 
- [3] (./polynomial/fft_tourist.cpp [1] [2] [3] [4] [5])
+ [4] (./polynomial/fft_tourist.cpp [1] [2] [3] [4] [5])
 (./polynomial/fps.cpp [6] [7] [8] [9] [10] [11] [12] [13] [14] [15])
 (./number_theory/mod.cpp) [16] (./number_theory/mod2.cpp [17])
 (./number_theory/sieve.cpp [18]) (./number_theory/phi_sieve.cpp)
 (./number_theory/div_sieve.cpp [19]) (./number_theory/pdiv_sieve.cpp)
 (./number_theory/sigma_sieve.cpp [20]) (./number_theory/mobius_sieve.cpp)
-[21] (./number_theory/exgcd.cpp) (./number_theory/euler_func_bf.cpp [22])
-(./number_theory/euler_func_pre.cpp) (./number_theory/crt.cpp)
-(./number_theory/excrt.cpp [23]) [24] (./number_theory/bm.cpp [25] [26])
-(./linear_algebra/gauss.cpp [27]) (./linear_algebra/gauss_bitset.cpp [28])
-(./linear_algebra/linear_basis.cpp [29] [30] [31])
-(./linear_algebra/matrix_tree.cpp [32] [33]) (./combinatorics/binom.cpp)
-[34] (./combinatorics/lucas.cpp) [35] (./combinatorics/p_bf.cpp) [36]
-(./graph/dsu.cpp [37]) (./graph/dijkstra.cpp [38]) (./graph/zhuliu.cpp [39]
-[40]) (./graph/lca.cpp [41]) (./graph/euler_circuit.cpp [42] [43])
-(./graph/scc.cpp [44] [45]) (./graph/twosat.cpp [46]) (./graph/maxflow_acl.cpp
-[47] [48] [49] [50]) (./graph/mincostmaxflow_acl.cpp [51] [52] [53] [54]
-[55] [56]) (./graph/stoer_wagner.cpp [57]) (./graph/km.cpp [58])
-(./graph/blossom.cpp [59] [60] [61]) [62] (./graph/max_clique.cpp [63])
-(./data_structures/fenwick_basic.cpp) [64] (./string/kmp.cpp)
-(./string/z_function.cpp [65]) (./string/manacher.cpp [66]) (./string/trie.cpp)
-(./string/xortrie.cpp [67]) (./geometry/geometry.cpp [68] [69] [70] [71]
-[72] [73] [74] [75] [76] [77] [78] [79]) (./others/fastio.cpp [80] [81]
-[82]) (./others/zeller.cpp [83]) (./others/subset.cpp) (./others/k_subset.cpp)
-(./others/sos.cpp) [84] (./template.aux)
+[21] (./number_theory/exgcd.cpp) (./number_theory/euclid_like_naive.cpp
+[22]) (./number_theory/euclid_like.cpp [23] [24] [25])
+(./number_theory/euler_func_bf.cpp) (./number_theory/euler_func_pre.cpp
+[26]) (./number_theory/crt.cpp) (./number_theory/excrt.cpp [27])
+(./number_theory/bm.cpp [28] [29] [30]) (./linear_algebra/gauss.cpp [31])
+(./linear_algebra/gauss_bitset.cpp) (./linear_algebra/linear_basis.cpp [32]
+[33] [34] [35]) (./linear_algebra/matrix_tree.cpp [36])
+(./combinatorics/binom.cpp [37]) (./combinatorics/lucas.cpp) [38]
+(./combinatorics/p_bf.cpp) [39] [40] [41] (./graph/dsu.cpp [42])
+(./graph/dijkstra.cpp [43]) (./graph/zhuliu.cpp [44] [45]) (./graph/lca.cpp
+[46]) (./graph/euler_circuit.cpp [47] [48]) (./graph/scc.cpp [49] [50])
+(./graph/twosat.cpp [51]) (./graph/maxflow_acl.cpp [52] [53] [54] [55])
+(./graph/mincostmaxflow_acl.cpp [56] [57] [58] [59] [60] [61])
+(./graph/stoer_wagner.cpp [62]) (./graph/km.cpp [63]) [64] (./graph/blossom.cpp
+[65] [66]) [67] (./graph/max_clique.cpp [68])
+(./data_structures/fenwick_basic.cpp) [69] (./string/kmp.cpp)
+(./string/z_function.cpp [70]) (./string/manacher.cpp [71]) (./string/trie.cpp)
+(./string/xortrie.cpp [72]) (./geometry/geometry.cpp [73] [74] [75] [76]
+[77] [78] [79] [80] [81] [82] [83] [84]) (./others/fastio.cpp [85] [86]
+[87]) (./others/zeller.cpp [88]) (./others/subset.cpp) (./others/k_subset.cpp)
+(./others/sos.cpp) [89] (./template.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 10306 strings out of 476919
- 239423 string characters out of 5824079
+ 10350 strings out of 476919
+ 239985 string characters out of 5824079
  1370053 words of memory out of 5000000
- 30023 multiletter control sequences out of 15000+600000
+ 30061 multiletter control sequences out of 15000+600000
  408626 words of font info for 69 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,13n,104p,381b,1053s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (87 pages).
+Output written on template.pdf (93 pages).
+] [30]) (./linear_algebra/gauss.cpp [31]) (./linear_algebra/gauss_bitset.cpp) (./linear_algebra/linear_basis.cpp [32] [33] [34] [35]) (./linear_algebra/matrix_tree.cpp [36]) (./combinatorics/binom.cpp [37]) (./combinatorics/lucas.cpp) [38] (./combinatorics/p_bf.cpp) [39] [40] [41] (./graph/dsu.cpp [42]) (./graph/dijkstra.cpp [43]) (./graph/zhuliu.cpp [44]) [45] (./graph/lca.cpp) (./graph/euler_circuit.cpp [46] [47] [48]) (./graph/scc.cpp [49] [50]) (./graph/twosat.cpp [51]) (./graph/maxflow_acl.cpp [52] [53] [54]) (./graph/mincostmaxflow_acl.cpp [55] [56] [57] [58] [59] [60]) (./graph/stoer_wagner.cpp [61] [62]) (./graph/km.cpp [63]) (./graph/blossom.cpp [64] [65] [66]) (./graph/max_clique.cpp [67]) (./data_structures/fenwick_basic.cpp [68]) (./string/kmp.cpp [69]) (./string/z_function.cpp) [70] (./string/manacher.cpp) (./string/trie.cpp [71]) (./string/xortrie.cpp [72]) (./geometry/geometry.cpp [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83]) (./others/fastio.cpp [84] [85] [86] [87]) (./others/zeller.cpp) (./others/subset.cpp) (./others/k_subset.cpp) [88] (./others/sos.cpp) [89] (./template.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.41063pt have occurred.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 10371 strings out of 478994
+ 158242 string characters out of 5860697
+ 1291358 words of memory out of 5000000
+ 27237 multiletter control sequences out of 15000+600000
+ 455949 words of font info for 220 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 87i,13n,90p,543b,1029s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+!pdfTeX error: pdflatex.exe (file unihei7f): Font unihei7f at 723 not found
+ ==> Fatal error occurred, no output PDF file produced!

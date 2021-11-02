@@ -87,8 +87,35 @@ exgcd求 $ax+by=c$ 的最小非负整数解详解：
     \item 考虑到 $a'x_0+b'y_0=1$ 等价于同余方程 $a'x_0\equiv 1\pmod{b'}$ ，因此为了求出最小非负整数解，我们最后还需要对 $b'$ 取模；
     \item 最后注意特判 $c'=0$ 的情况，如果要求解 $y$ 且系数 $b$ 发生了翻转，将其翻转回来。
 \end{enumerate}
-
 \lstinputlisting{number_theory/exgcd.cpp}
+\subsection{类欧几里得}
+\subsubsection{naive}
+$$
+f(a,b,c,n)=\sum_{i=0}^n\left\lfloor \frac{ai+b}{c} \right\rfloor
+$$
+
+原理：
+
+$$
+\begin{aligned}
+f(a,b,c,n)&=\sum_{i=0}^n\left\lfloor \frac{ai+b}{c} \right\rfloor\\
+&=\sum_{i=0}^n\left\lfloor
+\frac{\left(\left\lfloor\frac{a}{c}\right\rfloor c+a\bmod c\right)i+\left(\left\lfloor\frac{b}{c}\right\rfloor c+b\bmod c\right)}{c}\right\rfloor\\
+&=\frac{n(n+1)}{2}\left\lfloor\frac{a}{c}\right\rfloor+(n+1)\left\lfloor\frac{b}{c}\right\rfloor+
+\sum_{i=0}^n\left\lfloor\frac{\left(a\bmod c\right)i+\left(b\bmod c\right)}{c}
+\right\rfloor\\
+&=\frac{n(n+1)}{2}\left\lfloor\frac{a}{c}\right\rfloor
++(n+1)\left\lfloor\frac{b}{c}\right\rfloor+f(a\bmod c,b\bmod c,c,n)
+\end{aligned}
+$$
+\lstinputlisting{number_theory/euclid_like_naive.cpp}
+\subsubsection{general}
+$$
+\begin{aligned}
+f(a,b,c,n,k1,k2)=\sum_{i=0}^{n}i^{k_1}{\lfloor \frac{ai+b}{c} \rfloor}^{k_2}
+\end{aligned}
+$$
+\lstinputlisting{number_theory/euclid_like.cpp}
 \subsection{欧拉定理}
 
 $$
@@ -299,7 +326,64 @@ $$
 $$
 
 \section{博弈论}
+\subsection{SG定理}
+一个状态的SG函数值是它所有后继状态的MEX，当MEX为 $0$ 时该状态后手必胜，反之先手必胜。当某个游戏由多个独立的子游戏组成时，所有子游戏的SG函数异或和为 $0$ 时后手必胜，否则先手必胜。
 
+在Nim博弈中的简单应用：显然第 $i$ 堆石子的SG函数值就是它的石子数量 $a_i$ ，每一堆石子都是一个独立的子游戏，因此 $a_0\oplus a_1\oplus\cdots a_{n-1}=0$ 时后手必胜，否则先手必胜。
+
+\subsection{Bash博弈}
+一共 $N$ 个石子，先后手轮流取石子，每次最多取 $M$ 个石子，先取完者获胜。
+
+先手必胜：$N \pmod{M+1} \neq 0$ ；必败：$N \pmod{(M+1)} = 0$。
+
+\subsection{Nim-K博弈}
+有 $N$ 堆石子，先后手轮流取石子，每次最多可以选择 $K$ 堆石子，被选中的每堆石子都可以取任意个，先取完者获胜。
+
+把 $N$ 堆石子的石子数量都用二进制表示，对于二进制意义下的每一位，如果 $1$ 的数量在模 $K+1$ 意义下\textbf{全部}为 $0$ ，则先手必败。
+
+\subsection{Anti-Nim博弈}
+规则和Nim博弈一致，但是获胜条件改为：不能取石子的一方获胜。
+
+满足以下任意条件，则先手必胜：
+
+\begin{enumerate}
+    \item 所有堆的石子数量 $\leq 1$ 并且异或和 $=0$ 。
+    \item 至少存在一堆石子个数 $\geq 2$ 并且异或和 $\neq 0$ 。
+\end{enumerate}
+
+\subsection{Anti-SG博弈}
+SG博弈中最先不能行动的一方获胜。
+满足以下任意条件，则先手必胜：
+
+\begin{enumerate}
+    \item SG为 $0$ 并且每一个游戏的SG都不超过 $1$ 。
+    \item SG不为 $0$ 并且至少有一个游戏的SG大于 $1$ 。
+\end{enumerate}
+
+\subsection{阶梯博弈}
+有 $N$ 个阶梯（下标从 $0$ 开始），每个阶梯上有一定数量的石子，先后手轮流行动，每次可以从一个阶梯上拿走任意个石子放到下一层阶梯上，最先不能操作者失败。
+
+SG函数为奇数阶梯上的石子的异或和，如果移动偶数层的石子到奇数层，对手一定可以继续移动这些石子到偶数层使得SG不变。
+
+\subsection{Wythoff博弈}
+有两堆石子，石子数量分别为 $A,B$ ，每次可以从一堆或者两堆里拿走\textbf{相同数量}的石子，最先不能取石子的人输。
+
+必败态为：$A_k=\lfloor \frac{k(1+\sqrt{5})}{2}\rfloor, B_k=a_k + k$，假设 $A_k<B_k$ 。
+
+\subsection{树上删边博弈}
+给定一棵 $N$ 个点的有根树，两人轮流操作，每次删除树上的一条边，然后删除所有不与根节点联通的部分，最先不能进行删除操作的人失败。
+
+所有叶子节点的SG函数值为 $0$ ，非叶子节点的SG值为其所有子节点（SG值+1）的异或和。
+
+\subsection{无向图删边博弈}
+和树上删边博弈的规则一样，不过给出的是一个无向图。
+
+可以将图中的任意一个偶环缩成一个新点，任意一个奇环缩成一个新点加一个新边；所有连到原先环上的边全部改为与新点相连。
+
+\subsection{二分图博弈}
+给出一张二分图和起点 $S$ ，先后手轮流操作，每次只能从当前点（最开始是点 $S$）移动到一个\textbf{相邻}的点，且每个点只能被\textbf{遍历一次}，无法继续移动的人输。
+
+先手必胜：二分图的最大匹配\textbf{一定}包含起点 $S$ ；先手必败：二分图的最大匹配\textbf{不一定}包含起点 $S$ 。
 
 \section{图论}
 \subsection{并查集}
