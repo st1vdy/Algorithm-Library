@@ -169,7 +169,15 @@ $$
 \subsection{矩阵树定理}
 \lstinputlisting{linear_algebra/matrix_tree.cpp}
 \subsection{LGV引理}
+一般用于有向无环图不相交路径计数（常见于网格图）。
 
+$$
+M = \begin{bmatrix}e(A_1,B_1)&e(A_1,B_2)&\cdots&e(A_1,B_n)\\ 
+e(A_2,B_1)&e(A_2,B_2)&\cdots&e(A_2,B_n)\\ 
+\vdots&\vdots&\ddots&\vdots\\ 
+e(A_n,B_1)&e(A_n,B_2)&\cdots&e(A_n,B_n)\end{bmatrix}\\ 
+\det(M)=\sum\limits_{S:A\rightarrow B}(-1)^{N(\sigma(S))}\prod\limits_{i=1}^n \omega(S_i)
+$$
 
 \section{组合数学}
 \subsection{组合数预处理}
@@ -444,5 +452,9 @@ SG函数为奇数阶梯上的石子的异或和，如果移动偶数层的石子
 \lstinputlisting{others/k_subset.cpp}
 \subsection{高维前缀和/SoSDP}
 \lstinputlisting{others/sos.cpp}
+\subsection{压位BFS}
+给定一个 $n$ 个点的有向图，当所有边权均为 $1$ 时，$O(\frac{n^3}{w})$ 求任意两点之间的最短路。
+\lstinputlisting{others/bfs_bitset.cpp}
+
 
 \end{document}

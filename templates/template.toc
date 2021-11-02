@@ -72,7 +72,7 @@
 \contentsline {subsection}{\numberline {7.2}线段树}{70}{}%
 \contentsline {section}{\numberline {8}字符串}{70}{}%
 \contentsline {subsection}{\numberline {8.1}KMP}{70}{}%
-\contentsline {subsection}{\numberline {8.2}Z-Function}{70}{}%
+\contentsline {subsection}{\numberline {8.2}Z-Function}{71}{}%
 \contentsline {subsection}{\numberline {8.3}Manacher}{71}{}%
 \contentsline {subsection}{\numberline {8.4}Trie}{72}{}%
 \contentsline {subsection}{\numberline {8.5}01-Trie}{72}{}%
@@ -84,3 +84,4 @@
 \contentsline {subsubsection}{\numberline {10.3.1}暴力遍历}{89}{}%
 \contentsline {subsubsection}{\numberline {10.3.2}遍历大小为k的子集}{89}{}%
 \contentsline {subsection}{\numberline {10.4}高维前缀和/SoSDP}{89}{}%
+\contentsline {subsection}{\numberline {10.5}压位BFS}{90}{}%

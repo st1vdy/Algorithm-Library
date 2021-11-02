@@ -518,6 +518,9 @@ INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei76.tfm
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei5f.tfm
+INPUT ./template.toc
+INPUT template.toc
+INPUT template.toc
 OUTPUT template.toc
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei59.tfm
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei98.tfm
@@ -998,4 +1001,10 @@ INPUT ./others/sos.cpp
 INPUT others/sos.cpp
 INPUT ./others/sos.cpp
 INPUT others/sos.cpp
+INPUT ./others/bfs_bitset.cpp
+INPUT others/bfs_bitset.cpp
+INPUT ./others/bfs_bitset.cpp
+INPUT others/bfs_bitset.cpp
+INPUT ./others/bfs_bitset.cpp
+INPUT others/bfs_bitset.cpp
 INPUT template.aux
