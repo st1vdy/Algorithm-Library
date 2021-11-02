@@ -10,6 +10,10 @@ public:
         scc.add_edge(2 * i + (f ? 0 : 1), 2 * j + (g ? 1 : 0));
         scc.add_edge(2 * j + (g ? 0 : 1), 2 * i + (f ? 1 : 0));
     }
+    // 加入一个限制：i=f => j=g
+    void derive(int i, bool f, int j, bool g) {
+        add_clause(i, !f, j, g);
+    }
     // O(N + M) 如果返回true，则一个方案会保存在answer里
     bool satisfiable() {
         auto id = scc.scc_ids().second;
