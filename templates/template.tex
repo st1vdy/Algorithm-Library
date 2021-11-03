@@ -121,6 +121,16 @@ f(a,b,c,n,k1,k2)=\sum_{i=0}^{n}i^{k_1}{\lfloor \frac{ai+b}{c} \rfloor}^{k_2}
 \end{aligned}
 $$
 \lstinputlisting{number_theory/euclid_like.cpp}
+
+\subsection{Wilson定理}
+假设 $p$ 是素数，则有：
+
+$$
+(p-1)! \equiv -1 \pmod{p}
+$$
+
+否则除了 $p=4$ 时，$(p-1)!\equiv 0 \pmod{p}$ .
+
 \subsection{欧拉定理}
 
 $$
@@ -144,6 +154,7 @@ $$
 \subsubsection{EXCRT}
 \lstinputlisting{number_theory/excrt.cpp}
 \subsection{BSGS}
+\lstinputlisting{number_theory/bsgs.cpp}
 \subsection{二次剩余}
 \lstinputlisting{number_theory/tonelli_shanks.cpp}
 \subsection{迪利克雷卷积}
