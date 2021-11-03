@@ -8,7 +8,13 @@
 
 ## 数论模板测试
 
+### BSGS
 
+- https://www.luogu.com.cn/problem/P3846
+
+### 二次剩余
+
+- https://www.luogu.com.cn/problem/P5491
 
 ## 组合数学模板测试
 

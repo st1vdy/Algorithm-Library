@@ -988,6 +988,10 @@ INPUT geometry/geometry.cpp
 INPUT ./geometry/geometry.cpp
 INPUT geometry/geometry.cpp
 INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong94.tfm
+INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei74.tfm
+INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei9e.tfm
+INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei7f.tfm
+INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei94.tfm
 INPUT ./others/fastio.cpp
 INPUT others/fastio.cpp
 INPUT ./others/fastio.cpp
@@ -1015,7 +1019,6 @@ INPUT ./others/k_subset.cpp
 INPUT others/k_subset.cpp
 INPUT ./others/k_subset.cpp
 INPUT others/k_subset.cpp
-INPUT d:/dy/texlive/2021/texmf-dist/fonts/tfm/zhmetrics/unihei/unihei7f.tfm
 INPUT ./others/sos.cpp
 INPUT others/sos.cpp
 INPUT ./others/sos.cpp
