@@ -458,15 +458,78 @@ SG函数为奇数阶梯上的石子的异或和，如果移动偶数层的石子
 \subsection{01-Trie}
 \lstinputlisting{string/xortrie.cpp}
 
+
+
 \section{计算几何}
 \lstinputlisting{geometry/geometry.cpp}
 
+
+
 \section{数学公式及定理}
 \subsection{求导法则}
+下文中 $f,g$ 代表可微函数，其余字符代表常数。
+\begin{enumerate}
+    \item 加法法则：$(af)^{\prime} = a\cdot f^{\prime}$
+    \item 乘法法则：$(fg)^{\prime}=gf^{\prime}+fg^{\prime}$
+    \item 除法法则：$(\frac{f}{g})^{\prime}=\frac{gf^{\prime}-fg^{\prime}}{g^2}$
+    \item 链式法则：$(f\circ g)^{\prime} = f^{\prime}(g(x))g^{\prime}(x)$
+\end{enumerate}
 \subsection{麦克劳林级数}
+
+\subsection{泰勒公式}
+
 \subsection{微积分}
+
 \subsection{球缺}
-\subsection{马尔可夫链}
+
+\subsection{吸收型马尔可夫链}
+\subsubsection{规范型转移矩阵}
+两个主要定义：
+
+\begin{enumerate}
+    \item 吸收态：从当前状态只能转移到自身的状态，即转移矩阵中 $p_{i,i}=1$ 。
+    \item 瞬态：非吸收态的所有状态称为瞬态。
+\end{enumerate}
+
+让所有瞬态位于左侧，吸收态位于右侧，即 $S=\{s_1,s_2,\ldots,s_k,s^{\prime}_{k+1},\ldots, a^{\prime}_r\}$ ，其中 $s_i$ 表示瞬态，$s^{\prime}_j$ 表示吸收态，假设瞬态集合大小为 $k$ 。此时，转移矩阵就可以写成：
+
+$$
+\begin{bmatrix}
+\textbf{Q} & \textbf{R}\\
+\textbf{0} & \textbf{I}\\
+\end{bmatrix}
+$$
+
+这里，$\textbf{I}$ 是一个单位矩阵，$\textbf{0}$ 是一个零矩阵，$\textbf{Q}$ 是一个 $k\times k$ 的非零矩阵，$\textbf{R}$ 是一个 $k\times (r-k)$ 的非零矩阵。这个转移矩阵被称为规范型转移矩阵，简称规范矩阵（Canonical Matrix）。
+
+\subsubsection{基本矩阵}
+对于一个吸收型马尔可夫链，如果矩阵 $\textbf{I}-\textbf{Q}$ 存在一个逆矩阵 $\textbf{N}$ ，那么矩阵 $\textbf{N}$ 的第 $i,j$ 项 $n_{i,j}$ 就是从 $s_i$ 移动到 $s_j$ 的期望步数。
+
+\subsubsection{吸收时间}
+令 $\textbf{t}$ 为一个 $1\times r$ 的行向量，其中 $t_i$ 表示从状态 $s_i$ 出发被吸收的期望步数，那么有：
+
+$$\textbf{t}=\textbf{Nc}$$
+
+其中 $\textbf{c}$ 是一个 $r\times 1$ 的全 $1$ 列向量。
+
+更具体地，从瞬态 $s_i$ 出发被任意吸收态 $s^{\prime}_{j}$ 吸收的期望时间构成一个 $r-k \times r-k$ 的矩阵 $\textbf{E}$ ，且有：
+
+$$
+\begin{aligned}
+\textbf{E} = \frac{\textbf{N}^2\textbf{R}}{\textbf{NR}}
+\end{aligned}
+$$
+
+这里的除法就是两个矩阵之间的对应元素直接相除，而不是矩阵求逆。
+
+\subsubsection{吸收概率}
+令 $b_{i,j}$ 表示从瞬态 $s_i$ 出发在 $s_j$ 被吸收的概率，那么 $\textbf{B}$ 是一个 $k\times r$ 的矩阵，且有：
+
+$$\textbf{B}=\textbf{NR}$$
+
+其中，$\textbf{R}$ 就是标准型转移矩阵中的 $\textbf{R}$ 。
+
+
 
 \section{杂项}
 \subsection{快速IO}

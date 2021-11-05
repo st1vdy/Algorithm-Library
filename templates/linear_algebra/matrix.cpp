@@ -4,10 +4,10 @@ template<typename T> struct matrix {
     matrix(int n_, int m_, int val = 0) : n(n_), m(m_), a(n_, vector<T>(m_, val)) {}
     matrix(vector<vector<T>>& mat) : n(mat.size()), m(mat[0].size()), a(mat) {}
     vector<T>& operator [] (int k) { return this->a[k]; }
-    matrix operator + (matrix& k) { return *this + k; }
-    matrix operator - (matrix& k) { return *this + k; }
-    matrix operator * (matrix& k) { return *this + k; }
-    matrix operator += (matrix& mat) {
+    matrix operator + (matrix& k) { return matrix(*this) += k; }
+    matrix operator - (matrix& k) { return matrix(*this) -= k; }
+    matrix operator * (matrix& k) { return matrix(*this) *= k; }
+    matrix& operator += (matrix& mat) {
         assert(n == mat.n);
         assert(m == mat.m);
         for (int i = 0; i < n; i++) {
@@ -17,12 +17,12 @@ template<typename T> struct matrix {
         }
         return *this;
     }
-    matrix operator -=(matrix& mat) {
+    matrix& operator -=(matrix& mat) {
         assert(n == mat.n);
         assert(m == mat.m);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                a[i][j] += mat[i][j];
+                a[i][j] -= mat[i][j];
             }
         }
         return *this;
@@ -41,7 +41,7 @@ template<typename T> struct matrix {
             }
         }
     }
-    matrix operator *= (matrix& mat) {
+    matrix& operator *= (matrix& mat) {
         assert(m == mat.n);
         int x = n, y = mat.m, z = m;
         matrix<T> c(x, y);
@@ -53,7 +53,7 @@ template<typename T> struct matrix {
                 }
             }
         }
-        return (*this = c);
+        return *this = c;
     }
     matrix unit(int n_) {
         matrix res(n_, n_);
@@ -69,13 +69,13 @@ template<typename T> struct matrix {
             (*this) *= (*this);
             k >>= 1;
         }
-        return (*this = res);
+        return res;
     }
     matrix inverse() {
         assert(n == m);
         auto b = unit(n);
         for (int i = 0; i < n; i++) {
-            if (a[i][i] == 0) return matrix(0, 0); // 返回空矩阵 表示无解
+            if (a[i][i] == 0) return matrix(0, 0);
             T f = T(1) / a[i][i];
             for (int j = 0; j < n; j++) a[i][j] *= f, b[i][j] *= f;
             for (int j = 0; j < n; j++) {
@@ -87,7 +87,7 @@ template<typename T> struct matrix {
                 }
             }
         }
-        return (*this = b);
+        return b;
     }
     bool empty() { return (!n && !m); }
 };
