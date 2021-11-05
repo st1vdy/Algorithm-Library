@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.12.24)  5 NOV 2021 19:14
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.12.24)  5 NOV 2021 20:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -490,19 +490,19 @@ LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
 \tf@toc=\write3
 \openout3 = `template.toc'.
 
- [4] (./polynomial/fft_tourist.cpp [1] [2] [3] [4] [5]) (./polynomial/fps.cpp [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]) (./polynomial/fwt.cpp [16] [17]) (./number_theory/mod.cpp) [18] (./number_theory/mod2.cpp [19]) (./number_theory/sieve.cpp) (./number_theory/phi_sieve.cpp [20]) (./number_theory/div_sieve.cpp) (./number_theory/pdiv_sieve.cpp [21]) (./number_theory/sigma_sieve.cpp) (./number_theory/mobius_sieve.cpp [22]) (./number_theory/pollard_rho.cpp [23]) (./number_theory/exgcd.cpp [24]) (./number_theory/exgcd2.cpp [25] [26]) (./number_theory/euclid_like_naive.cpp) (./number_theory/euclid_like.cpp [27] [28] [29]) (./number_theory/euler_func_bf.cpp [30]) (./number_theory/euler_func_pre.cpp) (./number_theory/crt.cpp [31]) (./number_theory/excrt.cpp) (./number_theory/bsgs.cpp [32]) (./number_theory/tonelli_shanks.cpp [33]) (./number_theory/bm.cpp [34] [35] [36]) (./linear_algebra/matrix.cpp [37] [38]) (./linear_algebra/gauss.cpp [39]) (./linear_algebra/gauss_bitset.cpp) [40] (./linear_algebra/linear_basis.cpp [41] [42] [43]) (./linear_algebra/matrix_tree.cpp [44]) (./combinatorics/binom.cpp [45]) (./combinatorics/lucas.cpp) [46] (./combinatorics/p_bf.cpp) [47] [48] [49] (./graph/dsu.cpp [50]) (./graph/dijkstra.cpp [51]) (./graph/zhuliu.cpp [52] [53]) (./graph/lca.cpp [54]) (./graph/euler_circuit.cpp [55] [56]) (./graph/scc.cpp [57] [58]) (./graph/twosat.cpp [59]) (./graph/maxflow_acl.cpp [60] [61] [62] [63]) (./graph/mincostmaxflow_acl.cpp [64] [65] [66] [67] [68] [69]) (./graph/stoer_wagner.cpp [70]) (./graph/km.cpp [71] [72]) (./graph/blossom.cpp [73] [74] [75]) (./graph/max_clique.cpp [76]) (./data_structures/fenwick_basic.cpp [77]) (./string/kmp.cpp) [78] (./string/z_function.cpp) (./string/manacher.cpp [79]) (./string/trie.cpp) (./string/xortrie.cpp [80]) (./geometry/geometry.cpp [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92]) [93] (./others/fastio.cpp [94] [95] [96] [97]) (./others/zeller.cpp) (./others/subset.cpp) (./others/k_subset.cpp) [98] (./others/sos.cpp) (./others/bfs_bitset.cpp [99]) (./others/digit_dp.cpp [100]) (./others/random.cpp) (./others/compare.cpp [101]) [102] (./template.aux)
+ [4] (./polynomial/fft_tourist.cpp [1] [2] [3] [4] [5]) (./polynomial/fps.cpp [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]) (./polynomial/fwt.cpp [16] [17]) (./number_theory/mod.cpp) [18] (./number_theory/mod2.cpp [19]) (./number_theory/sieve.cpp) (./number_theory/phi_sieve.cpp [20]) (./number_theory/div_sieve.cpp) (./number_theory/pdiv_sieve.cpp [21]) (./number_theory/sigma_sieve.cpp) (./number_theory/mobius_sieve.cpp [22]) (./number_theory/pollard_rho.cpp [23]) (./number_theory/exgcd.cpp [24]) (./number_theory/exgcd2.cpp [25] [26]) (./number_theory/euclid_like_naive.cpp) (./number_theory/euclid_like.cpp [27] [28] [29]) (./number_theory/euler_func_bf.cpp [30]) (./number_theory/euler_func_pre.cpp) (./number_theory/crt.cpp [31]) (./number_theory/excrt.cpp) (./number_theory/bsgs.cpp [32]) (./number_theory/tonelli_shanks.cpp [33]) (./number_theory/bm.cpp [34] [35] [36]) (./linear_algebra/matrix.cpp [37] [38]) (./linear_algebra/gauss.cpp [39]) (./linear_algebra/gauss_bitset.cpp) [40] (./linear_algebra/linear_basis.cpp [41] [42] [43]) (./linear_algebra/matrix_tree.cpp [44]) (./combinatorics/binom.cpp [45]) (./combinatorics/lucas.cpp) [46] (./combinatorics/p_bf.cpp) [47] [48] [49] (./graph/dsu.cpp [50]) (./graph/dijkstra.cpp [51]) (./graph/zhuliu.cpp [52] [53]) (./graph/lca.cpp [54]) (./graph/euler_circuit.cpp [55] [56]) (./graph/scc.cpp [57] [58]) (./graph/twosat.cpp [59]) (./graph/maxflow_acl.cpp [60] [61] [62] [63]) (./graph/mincostmaxflow_acl.cpp [64] [65] [66] [67] [68] [69]) [70] (./graph/stoer_wagner.cpp [71]) (./graph/km.cpp [72] [73]) (./graph/blossom.cpp [74] [75] [76]) (./graph/max_clique.cpp [77]) (./data_structures/fenwick_basic.cpp [78]) (./string/kmp.cpp) [79] (./string/z_function.cpp) (./string/manacher.cpp [80]) (./string/trie.cpp) (./string/xortrie.cpp [81]) (./geometry/geometry.cpp [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93]) [94] [95] (./others/fastio.cpp [96] [97] [98]) (./others/zeller.cpp [99]) (./others/subset.cpp) (./others/k_subset.cpp) (./others/sos.cpp) [100] (./others/bfs_bitset.cpp [101]) (./others/digit_dp.cpp [102]) (./others/random.cpp) (./others/compare.cpp) [103] (./template.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.41063pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 11099 strings out of 479418
- 259175 string characters out of 5881064
- 1032399 words of memory out of 5000000
- 28284 multiletter control sequences out of 15000+600000
+ 11117 strings out of 479418
+ 260409 string characters out of 5881064
+ 1034399 words of memory out of 5000000
+ 28302 multiletter control sequences out of 15000+600000
  537680 words of font info for 72 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  56i,13n,68p,416b,1036s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (106 pages).
+Output written on template.pdf (107 pages).
