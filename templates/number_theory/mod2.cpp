@@ -1,80 +1,57 @@
-// copy from jiangly
-constexpr int P = 1e9 + 7;
-// assume -P <= x < 2P
-int norm(int x) {
-    if (x < 0) {
-        x += P;
-    }
-    if (x >= P) {
-        x -= P;
-    }
-    return x;
-}
-template<class T>
-T power(T a, int b) {
-    T res = 1;
-    for (; b; b /= 2, a *= a) {
-        if (b % 2) {
-            res *= a;
-        }
-    }
-    return res;
-}
-struct Z {
+template<int MOD> struct Z {
     int x;
-    Z(int x = 0) : x(norm(x)) {}
-    int val() const {
-        return x;
-    }
-    Z operator-() const {
-        return Z(norm(P - x));
-    }
-    Z inv() const {
-        assert(x != 0);
-        return power(*this, P - 2);
-    }
-    Z& operator*=(const Z& rhs) {
-        x = 1LL * x * rhs.x % P;
+    Z(int v = 0) : x(v % MOD) { if (x < 0) x += MOD; }
+    Z(long long v = 0) : x(v % MOD) { if (x < 0) x += MOD; }
+    Z operator - () const { return x ? MOD - x : 0; }
+    Z operator + (const Z& r) { return Z(*this) += r; }
+    Z operator - (const Z& r) { return Z(*this) -= r; }
+    Z operator * (const Z& r) { return Z(*this) *= r; }
+    Z operator / (const Z& r) { return Z(*this) /= r; }
+    Z& operator += (const Z& r) {
+        x += r.x;
+        if (x >= MOD) x -= MOD;
         return *this;
     }
-    Z& operator+=(const Z& rhs) {
-        x = norm(x + rhs.x);
+    Z& operator -= (const Z& r) {
+        x -= r.x;
+        if (x < 0) x += MOD;
         return *this;
     }
-    Z& operator-=(const Z& rhs) {
-        x = norm(x - rhs.x);
+    Z& operator *= (const Z& r) {
+        x = 1LL * x * r.x % MOD;
         return *this;
     }
-    Z& operator/=(const Z& rhs) {
-        return *this *= rhs.inv();
+    Z& operator /= (const Z& r) {
+        int a = r.x, b = MOD, u = 1, v = 0;
+        while (b) {
+            long long t = a / b;
+            a -= t * b, swap(a, b);
+            u -= t * v, swap(u, v);
+        }
+        x = 1LL * x * u % MOD;
+        if (x < 0) x += MOD;
+        return *this;
     }
-    friend Z operator*(const Z& lhs, const Z& rhs) {
-        Z res = lhs;
-        res *= rhs;
-        return res;
+    Z& power(long long k) {
+        int a = x; x = 1;
+        while (k > 0) {
+            if (k & 1) x = 1LL * x * a % MOD;
+            a = 1LL * a * a % MOD;
+            k >>= 1;
+        }
+        return *this;
     }
-    friend Z operator+(const Z& lhs, const Z& rhs) {
-        Z res = lhs;
-        res += rhs;
-        return res;
-    }
-    friend Z operator-(const Z& lhs, const Z& rhs) {
-        Z res = lhs;
-        res -= rhs;
-        return res;
-    }
-    friend Z operator/(const Z& lhs, const Z& rhs) {
-        Z res = lhs;
-        res /= rhs;
-        return res;
-    }
-    friend istream& operator >> (istream& is, Z& rhs) {
-        is >> rhs.x;
-        rhs.x %= P;
-        if (rhs.x < 0) rhs.x += P;
+    bool operator == (const Z& r) { return this->x == r.x; }
+    bool operator != (const Z& r) { return this->x != r.x; }
+    friend constexpr istream& operator >> (istream& is, Z<MOD>& x) noexcept {
+        is >> x.x;
+        x.x %= MOD;
+        if (x.x < 0) x.x += MOD;
         return is;
     }
-    friend ostream& operator << (ostream& os, Z& rhs) {
-        return os << rhs.x;
+    friend ostream& operator << (ostream& os, const Z<MOD>& x) {
+        return os << x.x;
     }
 };
+constexpr int MOD = 1e9 + 7;
+using mint = Z<MOD>;
