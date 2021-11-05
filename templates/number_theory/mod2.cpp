@@ -68,4 +68,13 @@ struct Z {
         res /= rhs;
         return res;
     }
+    friend istream& operator >> (istream& is, Z& rhs) {
+        is >> rhs.x;
+        rhs.x %= P;
+        if (rhs.x < 0) rhs.x += P;
+        return is;
+    }
+    friend ostream& operator << (ostream& os, Z& rhs) {
+        return os << rhs.x;
+    }
 };
