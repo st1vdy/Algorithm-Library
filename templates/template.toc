@@ -96,5 +96,6 @@
 \contentsline {subsubsection}{\numberline {11.3.2}遍历大小为k的子集}{95}%
 \contentsline {subsection}{\numberline {11.4}高维前缀和/SoSDP}{96}%
 \contentsline {subsection}{\numberline {11.5}压位BFS}{96}%
-\contentsline {subsection}{\numberline {11.6}随机数生成}{97}%
-\contentsline {subsection}{\numberline {11.7}简单对拍}{97}%
+\contentsline {subsection}{\numberline {11.6}数位DP}{97}%
+\contentsline {subsection}{\numberline {11.7}随机数生成}{98}%
+\contentsline {subsection}{\numberline {11.8}简单对拍}{98}%
