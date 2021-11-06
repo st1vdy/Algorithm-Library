@@ -58,6 +58,8 @@
 \lstinputlisting{polynomial/fps.cpp}
 \subsection{FWT}
 \lstinputlisting{polynomial/fwt.cpp}
+\subsection{分治FFT}
+\lstinputlisting{polynomial/fft_dac.cpp}
 
 \section{数论}
 \subsection{简单的防爆模板}
@@ -500,6 +502,7 @@ $S$ 点为 $1$ 号节点。
 \subsection{树状数组}
 \lstinputlisting{data_structures/fenwick_basic.cpp}
 \subsection{线段树}
+\lstinputlisting{data_structures/segtree_basic.cpp}
 \section{字符串}
 \subsection{KMP}
 \lstinputlisting{string/kmp.cpp}
@@ -572,6 +575,9 @@ $$
 S =2\pi RH
 \end{aligned}
 $$
+
+\subsection{圆环整点数}
+$x^2+y^2=n$ 整数解数：将 $n$ 分解为 $2^x\prod p_i^{c_i}\prod q_i^{d_i}$ ，其中 $p_i$ 为形如 $4k+1$ 的质因子，$q_i$ 为 $4k+3$ 的质因子，解的总数为 $4\prod (c_i+1)$ 。
 
 \subsection{吸收型马尔可夫链}
 \subsubsection{规范型转移矩阵}
